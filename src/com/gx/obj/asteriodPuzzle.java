@@ -1,4 +1,4 @@
 package com.gx.obj;
 
-public class asteriodPuzzle extends Puzzle{
+public class asteriodPuzzle{
 }

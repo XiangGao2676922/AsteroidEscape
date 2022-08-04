@@ -28,9 +28,7 @@ public class GameWin extends JFrame{
         }
     }
 
-    public static void main(String[] args) {
-        GameWin gameWin = new GameWin();
-        gameWin.launch();
-    }
+
+
 }
-//test commit
+

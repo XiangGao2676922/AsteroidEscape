@@ -1,4 +1,4 @@
 package com.gx.obj;
 
-public class spaceShipPuzzle extends Puzzle{
+public class spaceShipPuzzle {
 }

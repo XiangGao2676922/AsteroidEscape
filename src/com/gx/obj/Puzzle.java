@@ -12,7 +12,7 @@ import java.awt.event.FocusListener;
 public class Puzzle extends JButton implements FocusListener {//Implement the FocusListener interface
 
     //Image image;
-    int id;
+    public int id;
 
     public Puzzle(int id, String s) {
         this.id = id;

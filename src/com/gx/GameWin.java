@@ -151,16 +151,132 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
     }
 
     public void win(){
+        JOptionPane.showMessageDialog(this, "WIN！\n" +cnt+"step.");
+    }
+
+    public void movek(Puzzle p,JButton direction){
+        cnt++;
+        message.setText("Step："+cnt);
+        boolean move=true;//可以移动
+        Rectangle pRect=p.getBounds();
+        int x=p.getBounds().x;
+        int y=p.getBounds().y;
+        if(direction==below)
+            y=y+100;
+        else if(direction==above)
+            y=y-100;
+        else if(direction==left)
+            x=x-100;
+        else if(direction==right)
+            x=x+100;
+        pRect.setLocation(x,y);
+        Rectangle directionRect=direction.getBounds();
+        for(int k=0;k<10;k++){
+            Rectangle personRect=puzzle[k].getBounds();
+            if((pRect.intersects(personRect))&&(p.id!=k)){
+                //intersects为矩形类的一个方法，可以判断是否相交
+                for(Puzzle p2:puzzle){//遍历数组
+                    if(movec(p2,direction)==true){
+                        return;
+                    }
+                }
+                move=false;
+            }
+        }
+        if(pRect.intersects(directionRect)){
+            for(Puzzle p2:puzzle){
+                if(movec(p2,direction)==true){
+                    return;
+                }
+            }
+            move=false;
+        }
+        if(move==true)
+        {
+            p.setLocation(x,y);
+        }
+        int cx,cy;
+        cx=puzzle[0].getBounds().x;
+        cy=puzzle[0].getBounds().y;
+        if(cx==208&&cy==208)
+        {
+            win();
+            return ;
+
+        }
 
     }
 
-    public void move(){
+    public void movem(){
 
     }
+
+    public boolean movec(Puzzle p,JButton direction){
+        boolean move=true;//可以移动
+        Rectangle pRect=p.getBounds();
+        int x=p.getBounds().x;
+        int y=p.getBounds().y;
+        if(direction==below)
+            y=y+100;
+        else if(direction==above)
+            y=y-100;
+        else if(direction==left)
+            x=x-100;
+        else if(direction==right)
+            x=x+100;
+        pRect.setLocation(x,y);
+        Rectangle directionRect=direction.getBounds();
+        for(int k=0;k<10;k++){
+            Rectangle personRect=puzzle[k].getBounds();
+            if((pRect.intersects(personRect))&&(p.id!=k))
+                move=false;
+        }
+        if(pRect.intersects(directionRect))
+            move=false;
+
+        if(move==true)
+            p.setLocation(x,y);
+
+        return move;
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        JButton b=(JButton)e.getSource();
+        if(b==restart)
+        {
+            dispose();
+            new GameWin();
+        }
+        if(b==about)
+        {
 
+        }
+        if(b==help)
+        {
+
+        }
+        if(b==key)
+        {
+            b.setBackground(Color.green);
+            for(int k=0;k<name.length;k++)
+            {
+                puzzle[k].addKeyListener(this);
+            }
+            puzzle[7].requestFocus();//获取焦点
+        }
+        if(b==mouse)
+        {
+
+        }
+        if(b==begin)
+        {
+            b.setBackground(Color.yellow);
+            this.remove(begin);
+            this.remove(star);
+            map();
+        }
     }
 
     @Override
@@ -170,7 +286,15 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        Puzzle p=(Puzzle) e.getSource();
+        if(e.getKeyCode()==KeyEvent.VK_DOWN)//下键
+            movek(p,below);
+        if(e.getKeyCode()==KeyEvent.VK_UP)//上键
+            movek(p,above);
+        if(e.getKeyCode()==KeyEvent.VK_LEFT)//左键
+            movek(p,left);
+        if(e.getKeyCode()==KeyEvent.VK_RIGHT)//右键
+            movek(p,right);
     }
 
     @Override

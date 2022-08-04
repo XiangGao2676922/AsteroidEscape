@@ -13,6 +13,8 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
 
     Puzzle[] puzzle = new Puzzle[8];
 
+    String name[]={"spaceship","a_bl","a_blb","a_dd","a_dl","a_lb","a_lt","a_ltb"};
+
     JButton left, right, above, below;
 
     JButton restart = new JButton("Restart");
@@ -40,7 +42,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
     }
 
 
-    void launch(){
+    public void launch(){
         setLayout(null);
 
         add(restart);
@@ -103,6 +105,57 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         setLocationRelativeTo(null);
         setTitle("Asteroid Escape");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+
+    public void map(){
+        for(int k=0;k<name.length;k++)
+        {
+            puzzle[k]=new Puzzle(k,name[k]);
+            add(puzzle[k]);
+        }
+
+
+        puzzle[0].setBounds(208,108,200,200);
+        ImageIcon spaceship=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\spaceship.jpg");
+        puzzle[0].setIcon(spaceship);
+
+        puzzle[1].setBounds(208,308,200,100);
+        ImageIcon a_bl=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_bl.jpg");
+        puzzle[1].setIcon(a_bl);
+
+        puzzle[2].setBounds(108,308,100,200);
+        ImageIcon a_blb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_blb.jpg");
+        puzzle[2].setIcon(a_blb);
+
+        puzzle[3].setBounds(408,308,100,200);
+        ImageIcon a_dd=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_dd.jpg");
+        puzzle[3].setIcon(a_dd);
+
+        puzzle[4].setBounds(108,108,100,200);
+        ImageIcon a_dl=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_dl.jpg");
+        puzzle[4].setIcon(a_dl);
+
+        puzzle[5].setBounds(408,108,100,200);
+        ImageIcon a_lb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_lb.jpg");
+        puzzle[5].setIcon(a_lb);
+
+        puzzle[6].setBounds(108,508,100,100);
+        ImageIcon a_lt=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_lt.jpg");
+        puzzle[6].setIcon(a_lt);
+
+        puzzle[7].setBounds(408,508,100,100);
+        ImageIcon a_ltb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_ltb.jpg");
+        puzzle[7].setIcon(a_ltb);
+
+    }
+
+    public void win(){
+
+    }
+
+    public void move(){
+
     }
 
     @Override

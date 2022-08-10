@@ -74,13 +74,13 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         message.setBounds(110,40,160,50);
         ImageIcon starr=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\fm.jpg");//导入图片
         star.setIcon(starr);
-        star.setBounds(108,208,400,400);
+        star.setBounds(108,108,400,400);
         add(star);
 
 
         add(begin);
         begin.addActionListener(this);
-        begin.setBounds(250,140,100,50);
+        begin.setBounds(250,578,100,50);
         setVisible(true);
 
 
@@ -94,10 +94,10 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         add(above);
         add(below);
 
-        left.setBounds(98, 98, 10, 520);
-        right.setBounds(508,98,10,520);
+        left.setBounds(98, 98, 10, 420);
+        right.setBounds(508,98,10,420);
         above.setBounds(98, 98, 420, 10);
-        below.setBounds(98, 608, 420, 10);
+        below.setBounds(98, 508, 420, 10);
 
         setVisible(true);
 
@@ -116,35 +116,35 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         }
 
 
-        puzzle[0].setBounds(208,108,200,200);
+        puzzle[0].setBounds(241,108,133,133);
         ImageIcon spaceship=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\spaceship.jpg");
         puzzle[0].setIcon(spaceship);
 
-        puzzle[1].setBounds(208,308,200,100);
+        puzzle[1].setBounds(241,241,133,133);
         ImageIcon a_bl=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_bl.jpg");
         puzzle[1].setIcon(a_bl);
 
-        puzzle[2].setBounds(108,308,100,200);
+        puzzle[2].setBounds(108,241,133,133);
         ImageIcon a_blb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_blb.jpg");
         puzzle[2].setIcon(a_blb);
 
-        puzzle[3].setBounds(408,308,100,200);
+        puzzle[3].setBounds(374,241,133,133);
         ImageIcon a_dd=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_dd.jpg");
         puzzle[3].setIcon(a_dd);
 
-        puzzle[4].setBounds(108,108,100,200);
+        puzzle[4].setBounds(108,108,133,133);
         ImageIcon a_dl=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_dl.jpg");
         puzzle[4].setIcon(a_dl);
 
-        puzzle[5].setBounds(408,108,100,200);
-        ImageIcon a_lb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_lb.jpg");
+        puzzle[5].setBounds(374,108,133,133);
+        ImageIcon a_lb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_lb.png");
         puzzle[5].setIcon(a_lb);
 
-        puzzle[6].setBounds(108,508,100,100);
+        puzzle[6].setBounds(108,374,133,133);
         ImageIcon a_lt=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_lt.jpg");
         puzzle[6].setIcon(a_lt);
 
-        puzzle[7].setBounds(408,508,100,100);
+        puzzle[7].setBounds(374,374,133,133);
         ImageIcon a_ltb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_ltb.jpg");
         puzzle[7].setIcon(a_ltb);
 
@@ -157,7 +157,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
     public void movek(Puzzle p,JButton direction){
         cnt++;
         message.setText("Step："+cnt);
-        boolean move=true;//可以移动
+        boolean move=true;
         Rectangle pRect=p.getBounds();
         int x=p.getBounds().x;
         int y=p.getBounds().y;
@@ -174,8 +174,8 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         for(int k=0;k<10;k++){
             Rectangle personRect=puzzle[k].getBounds();
             if((pRect.intersects(personRect))&&(p.id!=k)){
-                //intersects为矩形类的一个方法，可以判断是否相交
-                for(Puzzle p2:puzzle){//遍历数组
+
+                for(Puzzle p2:puzzle){
                     if(movec(p2,direction)==true){
                         return;
                     }
@@ -212,7 +212,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
     }
 
     public boolean movec(Puzzle p,JButton direction){
-        boolean move=true;//可以移动
+        boolean move=true;
         Rectangle pRect=p.getBounds();
         int x=p.getBounds().x;
         int y=p.getBounds().y;
@@ -264,7 +264,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
             {
                 puzzle[k].addKeyListener(this);
             }
-            puzzle[7].requestFocus();//获取焦点
+            puzzle[7].requestFocus();
         }
         if(b==mouse)
         {
@@ -287,13 +287,13 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
     @Override
     public void keyPressed(KeyEvent e) {
         Puzzle p=(Puzzle) e.getSource();
-        if(e.getKeyCode()==KeyEvent.VK_DOWN)//下键
+        if(e.getKeyCode()==KeyEvent.VK_DOWN)
             movek(p,below);
-        if(e.getKeyCode()==KeyEvent.VK_UP)//上键
+        if(e.getKeyCode()==KeyEvent.VK_UP)
             movek(p,above);
-        if(e.getKeyCode()==KeyEvent.VK_LEFT)//左键
+        if(e.getKeyCode()==KeyEvent.VK_LEFT)
             movek(p,left);
-        if(e.getKeyCode()==KeyEvent.VK_RIGHT)//右键
+        if(e.getKeyCode()==KeyEvent.VK_RIGHT)
             movek(p,right);
     }
 

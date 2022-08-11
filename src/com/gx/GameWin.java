@@ -151,7 +151,9 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
     }
 
     public void win(){
-        JOptionPane.showMessageDialog(this, "WIN！\n" +cnt+"step.");
+        JOptionPane.showMessageDialog(this, "You Win！\n" +cnt+" steps.");
+        for(int k=0;k<name.length;k++)
+            this.remove(puzzle[k]);
     }
 
     public void movek(Puzzle p,JButton direction){
@@ -198,7 +200,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         int cx,cy;
         cx=puzzle[0].getBounds().x;
         cy=puzzle[0].getBounds().y;
-        if(cx==208&&cy==208)
+        if(cx==241&&cy==374)
         {
             win();
             return ;
@@ -236,7 +238,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         int cx,cy;
         cx=puzzle[0].getBounds().x;
         cy=puzzle[0].getBounds().y;
-        if(cx==208&&cy==208)
+        if(cx==241&&cy==374)
         {
             win();
             return ;

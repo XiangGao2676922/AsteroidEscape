@@ -72,7 +72,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
 
         add(message);
         message.setBounds(110,40,160,50);
-        ImageIcon starr=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\fm.jpg");//导入图片
+        ImageIcon starr=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\fm.jpg");
         star.setIcon(starr);
         star.setBounds(108,108,400,400);
         add(star);
@@ -210,7 +210,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
     public void movem(Puzzle p,JButton direction){
         cnt++;
         message.setText("Step："+cnt);
-        boolean move=true;//可以移动
+        boolean move=true;
         Rectangle pRect=p.getBounds();
         int x=p.getBounds().x;
         int y=p.getBounds().y;
@@ -233,10 +233,10 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
             move=false;
         if(move==true)
             p.setLocation(x,y);
-        int cx,cy;//曹操的位置
+        int cx,cy;
         cx=puzzle[0].getBounds().x;
         cy=puzzle[0].getBounds().y;
-        if(cx==208&&cy==208)//正确位置应该为408，这里为了快速结束游戏，设置较为简单
+        if(cx==208&&cy==208)
         {
             win();
             return ;

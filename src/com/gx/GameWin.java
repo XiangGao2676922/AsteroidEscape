@@ -375,6 +375,8 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
     }
 
 
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton b=(JButton)e.getSource();
@@ -394,6 +396,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         }
         if(b==help)
         {
+            JOptionPane.showMessageDialog(this,"easy:ship→,↑,→,→,↑,→,↑,↑,←,↑,←,←,ship↓,ship←,ship↓ \n"+"medium:←,ship↓,→,→,↑,↑,←,←,ship↓,→,↑,ship←,ship↓ \n"+"difficult:ship↑,↑,→,→,↓,←,↑,→,↓,↓,←,ship←,↑,→,→,↓,ship←,←,↑,↑,→,↓,→,ship↓,←,←,↑,→,ship→,↑,←,←,↓,ship→,↑,←,ship↓,→,→,↑,←,ship←,ship↓ \n");
 
         }
         if(b==key)

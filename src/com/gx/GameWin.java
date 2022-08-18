@@ -29,7 +29,11 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
 
     JButton message=new JButton("Step："+cnt);
 
-    JButton begin=new JButton("Start");
+    JButton easy=new JButton("easy");
+
+    JButton medium=new JButton("medium");
+
+    JButton difficult=new JButton("difficult");
 
     JButton star=new JButton();
 
@@ -78,9 +82,19 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         add(star);
 
 
-        add(begin);
-        begin.addActionListener(this);
-        begin.setBounds(250,578,100,50);
+        add(easy);
+        easy.addActionListener(this);
+        easy.setBounds(120,578,100,50);
+        setVisible(true);
+
+        add(medium);
+        medium.addActionListener(this);
+        medium.setBounds(250,578,100,50);
+        setVisible(true);
+
+        add(difficult);
+        difficult.addActionListener(this);
+        difficult.setBounds(380,578,100,50);
         setVisible(true);
 
 
@@ -120,32 +134,118 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         ImageIcon spaceship=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\spaceship.jpg");
         puzzle[0].setIcon(spaceship);
 
-        puzzle[1].setBounds(241,241,133,133);
+        puzzle[1].setBounds(108,374,133,133);
         ImageIcon a_bl=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_bl.jpg");
         puzzle[1].setIcon(a_bl);
 
-        puzzle[2].setBounds(108,241,133,133);
+        puzzle[2].setBounds(241,374,133,133);
         ImageIcon a_blb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_blb.jpg");
         puzzle[2].setIcon(a_blb);
 
-        puzzle[3].setBounds(374,241,133,133);
+        puzzle[3].setBounds(108,241,133,133);
         ImageIcon a_dd=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_dd.jpg");
         puzzle[3].setIcon(a_dd);
 
-        puzzle[4].setBounds(108,108,133,133);
+        puzzle[4].setBounds(241,241,133,133);
         ImageIcon a_dl=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_dl.jpg");
         puzzle[4].setIcon(a_dl);
 
-        puzzle[5].setBounds(374,108,133,133);
+        puzzle[5].setBounds(374,374,133,133);
         ImageIcon a_lb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_lb.png");
         puzzle[5].setIcon(a_lb);
 
-        puzzle[6].setBounds(108,374,133,133);
+        puzzle[6].setBounds(108,108,133,133);
         ImageIcon a_lt=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_lt.jpg");
         puzzle[6].setIcon(a_lt);
 
-        puzzle[7].setBounds(374,374,133,133);
+        puzzle[7].setBounds(374,241,133,133);
         ImageIcon a_ltb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\a_ltb.jpg");
+        puzzle[7].setIcon(a_ltb);
+
+    }
+
+    public void map2(){
+
+        for(int k=0;k<name.length;k++)
+        {
+            puzzle[k]=new Puzzle(k,name[k]);
+            add(puzzle[k]);
+        }
+
+
+        puzzle[0].setBounds(241,241,133,133);
+        ImageIcon spaceship=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\spaceship.jpg");
+        puzzle[0].setIcon(spaceship);
+
+        puzzle[1].setBounds(108,108,133,133);
+        ImageIcon a_bl=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\ma_bl.jpg");
+        puzzle[1].setIcon(a_bl);
+
+        puzzle[2].setBounds(374,108,133,133);
+        ImageIcon a_blb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\ma_blb.jpg");
+        puzzle[2].setIcon(a_blb);
+
+        puzzle[3].setBounds(241,108,133,133);
+        ImageIcon a_dd=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\ma_dd.jpg");
+        puzzle[3].setIcon(a_dd);
+
+        puzzle[4].setBounds(374,241,133,133);
+        ImageIcon a_dl=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\ma_dl.jpg");
+        puzzle[4].setIcon(a_dl);
+
+        puzzle[5].setBounds(374,374,133,133);
+        ImageIcon a_lb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\ma_lb.png");
+        puzzle[5].setIcon(a_lb);
+
+        puzzle[6].setBounds(108,374,133,133);
+        ImageIcon a_lt=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\ma_lt.jpg");
+        puzzle[6].setIcon(a_lt);
+
+        puzzle[7].setBounds(108,241,133,133);
+        ImageIcon a_ltb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\ma_ltb.jpg");
+        puzzle[7].setIcon(a_ltb);
+
+    }
+
+    public void map3(){
+
+        for(int k=0;k<name.length;k++)
+        {
+            puzzle[k]=new Puzzle(k,name[k]);
+            add(puzzle[k]);
+        }
+
+
+        puzzle[0].setBounds(374,241,133,133);
+        ImageIcon spaceship=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\spaceship.jpg");
+        puzzle[0].setIcon(spaceship);
+
+        puzzle[1].setBounds(241,374,133,133);
+        ImageIcon a_bl=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\da_bl.jpg");
+        puzzle[1].setIcon(a_bl);
+
+        puzzle[2].setBounds(374,374,133,133);
+        ImageIcon a_blb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\da_blb.jpg");
+        puzzle[2].setIcon(a_blb);
+
+        puzzle[3].setBounds(108,108,133,133);
+        ImageIcon a_dd=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\da_dd.jpg");
+        puzzle[3].setIcon(a_dd);
+
+        puzzle[4].setBounds(108,241,133,133);
+        ImageIcon a_dl=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\da_dl.jpg");
+        puzzle[4].setIcon(a_dl);
+
+        puzzle[5].setBounds(108,374,133,133);
+        ImageIcon a_lb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\da_lb.png");
+        puzzle[5].setIcon(a_lb);
+
+        puzzle[6].setBounds(241,108,133,133);
+        ImageIcon a_lt=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\da_lt.jpg");
+        puzzle[6].setIcon(a_lt);
+
+        puzzle[7].setBounds(241,241,133,133);
+        ImageIcon a_ltb=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\da_ltb.jpg");
         puzzle[7].setIcon(a_ltb);
 
     }
@@ -285,7 +385,12 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         }
         if(b==about)
         {
-
+            JOptionPane.showMessageDialog(this, "The object of Asteroid Escape is to navigate your spaceship through the asteroid field and reach the exit.\n"
+                    + "Select a challenge. Place the 8 puzzle pieces on the game board as indicated. Pay attention to the exact orientation of each puzzle piece!, one by one:\n"
+                            + "· All puzzle pieces must remain horizontal on the game board! Tilting or lifting up pieces is not allowed.\n"+"·Sometimes asteroids will overlap empty parts of other puzzle pieces or the border of the game board. But asteroids can never overlap other asteroids!\n"
+                            +"· The spaceship can also overlap empty parts of puzzle pieces and the border. But the spaceship can never overlap asteroids.\n"+"· Only the spaceship can slide off the game board.\n"
+                            + "You have found a solution when you can slide the spaceship through the opening of the game board. The shortest solution is shown at the end of the challenge booklet,\n"
+                    );
         }
         if(b==help)
         {
@@ -293,7 +398,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         }
         if(b==key)
         {
-            b.setBackground(Color.green);
+            b.setBackground(Color.GRAY);
             for(int k=0;k<name.length;k++)
             {
                 puzzle[k].addKeyListener(this);
@@ -302,16 +407,30 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         }
         if(b==mouse)
         {
-            b.setBackground(Color.yellow);
+            b.setBackground(Color.GRAY);
             for(int k=0;k<name.length;k++)
                 puzzle[k].addMouseListener(this);
         }
-        if(b==begin)
+        if(b==easy)
         {
             b.setBackground(Color.yellow);
-            this.remove(begin);
+            this.remove(easy);
             this.remove(star);
             map();
+        }
+        if(b==medium)
+        {
+            b.setBackground(Color.yellow);
+            this.remove(medium);
+            this.remove(star);
+            map2();
+        }
+        if(b==difficult)
+        {
+            b.setBackground(Color.yellow);
+            this.remove(difficult);
+            this.remove(star);
+            map3();
         }
     }
 

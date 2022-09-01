@@ -5,16 +5,19 @@ import com.gx.obj.Puzzle;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.text.DecimalFormat;
 
 
 public class GameWin extends JFrame implements MouseListener,KeyListener, ActionListener {
 
+
+
     int cnt=0;
 
-    Puzzle[] puzzle = new Puzzle[8];
+    Puzzle[] puzzle = new Puzzle[8];//Define an array of 8 puzzles
 
-    String name[]={"spaceship","a_bl","a_blb","a_dd","a_dl","a_lb","a_lt","a_ltb"};
-
+    String name[]={"spaceship","a_bl","a_blb","a_dd","a_dl","a_lb","a_lt","a_ltb"};//Define an array to put various puzzles
+    //define buttons
     JButton left, right, above, below;
 
     JButton restart = new JButton("Restart");
@@ -40,7 +43,9 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
 
     public GameWin(){
         launch();
+        //A function that sets the initial position and size of the form
         setBounds(200,200,640,800);
+        //Using the validate method is for the container to lay out its components again, ensuring that the layout is valid
         validate();
 
     }
@@ -49,6 +54,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
     public void launch(){
         setLayout(null);
 
+        //Define the restart button, size, position and listener events.
         add(restart);
         restart.addActionListener(this);
         restart.setBounds(120, 640, 100, 50);
@@ -98,7 +104,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         setVisible(true);
 
 
-
+        //Define the action buttons, up, down, left and right.
         left=new JButton();
         right=new JButton();
         above=new JButton();
@@ -107,13 +113,13 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         add(right);
         add(above);
         add(below);
-
+        //Boundary class
         left.setBounds(98, 98, 10, 420);
         right.setBounds(508,98,10,420);
         above.setBounds(98, 98, 420, 10);
         below.setBounds(98, 508, 420, 10);
 
-        setVisible(true);
+        setVisible(true);//window is visible
 
 
         setLocationRelativeTo(null);
@@ -121,15 +127,17 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-
+    //Game layout, add background images to each character, and put them into the interface.
     public void map(){
+
+
         for(int k=0;k<name.length;k++)
         {
             puzzle[k]=new Puzzle(k,name[k]);
             add(puzzle[k]);
         }
 
-
+        //Add images to the button
         puzzle[0].setBounds(241,108,133,133);
         ImageIcon spaceship=new ImageIcon("C:\\Users\\lenovo\\IdeaProjects\\AsteroidEscape\\imgs\\spaceship.jpg");
         puzzle[0].setIcon(spaceship);
@@ -255,11 +263,11 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         for(int k=0;k<name.length;k++)
             this.remove(puzzle[k]);
     }
-
+    //Movement in keyboard mode
     public void movek(Puzzle p,JButton direction){
         cnt++;
         message.setText("Step："+cnt);
-        boolean move=true;
+        boolean move=true;//can move
         Rectangle pRect=p.getBounds();
         int x=p.getBounds().x;
         int y=p.getBounds().y;
@@ -275,6 +283,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         Rectangle directionRect=direction.getBounds();
         for(int k=0;k<8;k++){
             Rectangle personRect=puzzle[k].getBounds();
+            //intersects is a method of the rectangle class, which can determine whether to intersect
             if((pRect.intersects(personRect))&&(p.id!=k)){
 
                 for(Puzzle p2:puzzle){
@@ -297,13 +306,14 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
         {
             p.setLocation(x,y);
         }
+        //the location of the ship
         int cx,cy;
         cx=puzzle[0].getBounds().x;
         cy=puzzle[0].getBounds().y;
         if(cx==241&&cy==374)
         {
             win();
-            return ;
+            return;
 
         }
 
@@ -441,7 +451,7 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
     public void keyTyped(KeyEvent e) {
 
     }
-
+    //Defines how the keyboard moves.
     @Override
     public void keyPressed(KeyEvent e) {
         Puzzle p=(Puzzle) e.getSource();
@@ -505,6 +515,9 @@ public class GameWin extends JFrame implements MouseListener,KeyListener, Action
     public void mouseExited(MouseEvent e) {
 
     }
+
+
+
 
 /*    @Override
     public void paint(Graphics g) {
